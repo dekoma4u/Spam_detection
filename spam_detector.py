@@ -14,7 +14,6 @@ df = df.rename(columns= {"v1":"Label", "v2":"EmailText"})
 df.Label = df.Label.replace("ham", "normal")
 
 # Split the dataframe and assign train and test sets and use 0.20 as 20% for test dataset
-
 x = df["EmailText"]
 y = df["Label"]
 
