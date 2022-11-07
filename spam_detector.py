@@ -3,9 +3,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import svm
+print("Imported libraries")
 
 df = pd.read_csv("https://raw.githubusercontent.com/SmallLion/Python-Projects/main/Spam-detection/spam.csv")
 df = df.filter(items=["v1","v2"])
+print("Loaded data")
 
 # Customize the column names
 df = df.rename(columns= {"v1":"Label", "v2":"EmailText"})
@@ -28,6 +30,7 @@ features = cv.fit_transform(x_train)
 model = svm.SVC()
 model.fit(features, y_train)
 
+print("Analyzing data now . . . ")
 # Use the test datasets to test the model for accuracy score. Recall to transform the x_test to tokens
 features_test = cv.transform(x_test)
 print("Accuracy score: {}".format(model.score(features_test, y_test)))
